@@ -9,32 +9,42 @@ let card1 = {
 };
 
 let card2 = {
-    number: 3467351,
-    name: "Marina",
-    surname: "Ivanova",
-    code: 3010,
-    account: 1000,
-    bank: "Monobank",
-  };
+  number: 3467351,
+  name: "Marina",
+  surname: "Ivanova",
+  code: 3010,
+  account: 1000,
+  bank: "Monobank",
+};
+
+const bank = [card1, card2];
 
 let bankMachine1 = {
   number: 9876,
+  cards: bank,
   showAccount: function (card) {
-    alert(card.account);
+    if (this.check(card)) {
+      alert(card.account);
+    } else {
+      alert("Error");
+    }
   },
   getMoney: function (card, sum) {
-    alert((card.account -= sum));
+    if (this.check(card)) {
+      alert((card.account -= sum));
+    } else {
+      alert("Error");
+    }
   },
   check: function (card) {
-    let number = 1243456;
-    let code = 1905;
-    if (code == card.code && number == card.number) {
-    //   return true;
-    alert(card.account -= this.sum);
-    } else {
-        // return false;
-        alert("Error!");
+    // let number = 1243456;
+    // let code = prompt("Input code:");
+    for (let i = 0; i < bank.length; i++) {
+      if (bank[i].code == card.code && card.number == bank[i].number) {
+        return true;
+      }
     }
+    return false;
   },
 };
 
