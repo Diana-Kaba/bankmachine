@@ -40,7 +40,7 @@ let bankMachine1 = {
     // let number = 1243456;
     // let code = prompt("Input code:");
     for (let i = 0; i < bank.length; i++) {
-      if (bank[i].code == card.code && card.number == bank[i].number) {
+      if (bank[i].code == card.code && card.number == bank[i].number && bank[i].bank == card.bank) {
         return true;
       }
     }
